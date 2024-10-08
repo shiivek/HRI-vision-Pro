@@ -9,19 +9,14 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-//struct ContentView: View {
-//
-//    var body: some View {
-//
-//    }
-//}
-
 
 struct ContentView: View {
     var body: some View {
         
         
         NavigationView {
+  
+
             List  {
                 Spacer(minLength: 100)
                 NavigationLink(destination: BaseView()) {
@@ -42,79 +37,187 @@ struct ContentView: View {
                     
                 }/*.padding(.top, 50)*/
                 Spacer()
-            }
+            }.listStyle(.insetGrouped)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("  Functions")
+                        Text(" Functions")
                             .font(.extraLargeTitle)
                             .padding(.top, 100)
 
                     }
                 }
+            
+            Image(.hiroLogoWPITheme300X108)
         }
         
     }
 }
-
 
 struct BaseView: View {
     var body: some View {
-        Text("Control the base")
-            .font(.largeTitle)
-            .padding()
-        Button(action: {
-            // Code
-        }) {
-            Image(systemName: "arrow.up")
-                .font(.system(size: 40)) // Set the desired size
+        VStack {
+            Text("Control the base")
+                .font(
+                    .extraLargeTitle
+                ) // Adjusted to .largeTitle for consistency
+                .padding()
 
-        }
-        HStack {
-            Button(action: {
-                // Code
-            }) {
-                Image(systemName: "arrow.left")
+            VStack {
+                Button(action: {
+                    // Action for up button
+                }) {
+                    Image(systemName: "arrow.up")
+                        .font(.system(size: 100))
+                        .padding(30)
+                }
+                
+                .clipShape(Circle()) // Make the button circular
+                .padding(.bottom, -40)
+
+                HStack {
+                    Button(action: {
+                        // Action for left button
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .font(.system(size: 100))
+                            .padding(40)
+                    }
+            
+                    .clipShape(Circle())
+
+                    Spacer()
+                        .frame(width: 40)
+
+                    Button(action: {
+                        // Action for right button
+                    }) {
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 100))
+                            .padding(40)
+                    }
+    
+                    .clipShape(Circle())
+                }
+                .padding(.bottom, -40)
+
+                Button(action: {
+           
+                }) {
+                    Image(systemName: "arrow.down")
+                        .font(.system(size: 100))
+                        .padding(30)
+                }
+           
+                .clipShape(Circle())
             }
-            Button(action: {
-                // Code
-            }) {
-                Image(systemName: "arrow.right")
-            }
-        }
-        Button(action: {
-            // Code
-        }) {
-            Image(systemName: "arrow.down")
+            .padding()
         }
     }
 }
+
 
 struct ChestView: View {
     var body: some View {
-        Text("control the chest")
-            .font(.largeTitle)
-            .padding()
-        
-        Button(action: {
-            // Code
-        }) {
-            Image(systemName: "arrow.up")
-        }
-        Button(action: {
-            // Code
-        }) {
-            Image(systemName: "arrow.down")
+        VStack {
+            Text("Control The Chest")
+                .font(.extraLargeTitle)
+                .padding(.bottom, 50)
+
+            VStack {
+                Button(action: {
+                    // Action for up button
+                }) {
+                    Image(systemName: "arrow.up")
+                        .font(.system(size: 100))
+                        .padding(30)
+                }
+                .clipShape(Circle()) // Make the button circular
+                .padding(.bottom, 40)
+         
+
+                Button(action: {
+                    // Action for down button
+                }) {
+                    Image(systemName: "arrow.down")
+                        .font(.system(size: 100))
+                        .padding(30)
+
+                }
+                .clipShape(Circle()) // Make the button circular
+            }
+            .padding() // Padding around the HStack
         }
     }
 }
 
+
 struct ArmView: View {
     var body: some View {
-        Text("control the arm")
-            .font(.largeTitle)
-            .padding()
+        VStack {
+            Text("Control The Arm")
+                .font(.extraLargeTitle)
+                .padding(40)
+
+            HStack {
+                VStack {
+                    Text("Move Target")
+                        .font(.largeTitle)
+                        .padding(.bottom, 10) // Space between text and circle
+
+                    Button(action: {
+                        // Action for pin button
+                    }) {
+                        Image(systemName: "pin")
+                            .font(.system(size: 100))
+                            .padding(30)
+                    }
+                    .frame(width: 150, height: 150) // Set fixed size for the button
+                    .clipShape(Circle()) // Make the button circular
+                }
+                
+                Spacer() // Add space between buttons
+
+                VStack {
+                    Text("Move Arm")
+                        .font(.largeTitle)
+                        .padding(.bottom, 10)
+
+                    Button(action: {
+                        // Action for hand.draw button
+                    }) {
+                        Image(systemName: "hand.draw")
+                            .font(.system(size: 100))
+                            .padding(30)
+                    }
+                    .frame(width: 150, height: 150) // Set fixed size for the button
+                    .clipShape(Circle()) // Make the button circular
+                }
+
+                Spacer() // Add space between buttons
+
+                VStack {
+                    Text("Follow EE")
+                        .font(.largeTitle)
+                        .padding(.bottom, 10)
+
+                    Button(action: {
+                        // Action for pencil button
+                    }) {
+                        Image(systemName: "pencil.and.outline")
+                            .font(.system(size: 100))
+                            .padding(30)
+                    }
+                    .frame(width: 150, height: 150) // Set fixed size for the button
+                    .clipShape(Circle()) // Make the button circular
+                }
+            }
+            .padding(.horizontal, 40) // Add horizontal padding to the HStack
+        }
+        .padding(.horizontal) // Padding for the entire VStack (optional)
     }
 }
+
+
 
 
 #Preview(windowStyle: .automatic) {
