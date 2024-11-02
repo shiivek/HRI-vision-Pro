@@ -18,7 +18,7 @@ struct ContentView: View {
   
 
             List  {
-                Spacer(minLength: 100)
+                Spacer(minLength: 80)
                 NavigationLink(destination: BaseView()) {
                     Text("Base")
                         .font(.extraLargeTitle) // Increase font size
